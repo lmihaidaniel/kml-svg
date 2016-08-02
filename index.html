@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+   <meta name="description" content="Kumullus Icons"/>
+   <meta name="keywords" content=""/>
+   <meta name="author" content="Kumullus"/>
+   <title>KML-ICONS</title>
+   <link rel="stylesheet" type="text/css" href="kml-svg.css">
+   <style>
+   		button{
+    		position: relative;
+    		background: none;
+    		width: 48px;
+    		height: 48px;
+    		color: #757575;
+    		margin-bottom: 48px;
+   		}
+   		button span{
+   			    position: absolute;
+			    top: 120%;
+			    left: 0;
+			    width: 100%;
+			    text-align: center;
+   		}
+   </style>
+</head>
+<body>
+	<div id="wrapper"></div>
+	<script src="kml-svg.js"></script>
+	<script>
+		var wrapper = document.getElementById('wrapper');
+		var getIconsNames = function(el){
+			var frag = document.createDocumentFragment();
+			var s = el.children[0].querySelectorAll('symbol');
+			for(var k = 0, n = s.length; k<n; k+=1){
+				var b = document.createElement('button');
+				var span = document.createElement('span');
+				span.textContent = s[k].id;
+				svg.create(s[k].id, b);
+				b.appendChild(span);
+				frag.appendChild(b);
+			}
+			wrapper.appendChild(frag);
+		}
+		var svg = new kmlSvg(getIconsNames);
+	</script>
+</body>
+</html>

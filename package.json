@@ -1,0 +1,33 @@
+{
+  "name": "kml-svg",
+  "description": "Svg use element.",
+  "version": "1.0.0",
+  "copyright": "Copyright Kumullus, Inc. <https://www.kumullus.com/>",
+  "license": "GPL-3.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node rollup.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-plugin-transform-es2015-classes": "latest",
+    "babel-preset-es2015-rollup": "latest",
+    "csswring": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-postcss": "latest",
+    "gulp-sourcemaps": "latest",
+    "postcss-cssnext": "latest",
+    "postcss-font-magician": "latest",
+    "postcss-import": "latest",
+    "postcss-nested": "latest",
+    "precss": "latest",
+    "reset-css": "latest",
+    "rollup": "latest",
+    "rollup-plugin-babel": "latest",
+    "rollup-plugin-commonjs": "latest",
+    "rollup-plugin-node-resolve": "latest",
+    "uglify-js": "latest"
+  }
+}

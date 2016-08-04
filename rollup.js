@@ -3,6 +3,8 @@
 var pkg = require('./package.json');
 var gulp = require('gulp');
 var rollup = require('rollup');
+var replace = require( 'rollup-plugin-replace' );
+var filesize = require( 'rollup-plugin-filesize' );
 //js related
 var babel = require('rollup-plugin-babel');
 var uglify = require('uglify-js');
@@ -24,6 +26,9 @@ var config = {
     moduleName: 'kmlSvg',
     entry: 'lib/index.js', // Entry file
     plugins: [
+      replace({
+        VERSION: JSON.stringify( pkg.version )
+      }),
       babel({
         exclude: 'node_modules/**',
         compact: true,
@@ -33,7 +38,8 @@ var config = {
               loose: true
             }]
           ] // needed to add support to classes in <=ie10
-      })
+      }),
+      filesize()
     ]
   }
 };
@@ -99,7 +105,7 @@ gulp.task('compile', function() {
         sourceMap: true,
         dest: './' + pkg.name + '.js', // Exit file
       });
-      fs.writeFileSync('./' + config.compile.moduleName + '.min.js', config.banner + '\n' + js_minify(result.code));
+      fs.writeFileSync('./' + pkg.name + '.min.js', config.banner + '\n' + js_minify(result.code));
     }).then(function() {
       console.log(pkg.name + ' builded');
     }).catch(function(error) {

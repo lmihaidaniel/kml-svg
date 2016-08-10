@@ -32,9 +32,10 @@
 	<script src="kml-svg.js"></script>
 	<script>
 		var wrapper = document.getElementById('wrapper');
+		var svg = new kmlSvg();
 		var getIconsNames = function(el){
 			var frag = document.createDocumentFragment();
-			var s = el.children[0].querySelectorAll('symbol');
+			var s = el.querySelectorAll('symbol');
 			for(var k = 0, n = s.length; k<n; k+=1){
 				var b = document.createElement('button');
 				var span = document.createElement('span');
@@ -45,7 +46,7 @@
 			}
 			wrapper.appendChild(frag);
 		}
-		var svg = new kmlSvg(getIconsNames);
+		setTimeout(function(){getIconsNames(document.getElementById('svg-icons'));}, 200);
 	</script>
 </body>
 </html>
